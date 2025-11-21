@@ -118,100 +118,99 @@ export default async function ProfilePage({ params }: PageProps) {
     <>
       <JsonLd data={personSchema} />
       <main className="container">
-        <header>
-          <nav style={{ marginBottom: '2rem' }}>
-            <Link href="/">← Back to Home</Link>
-          </nav>
+        <nav style={{ marginBottom: '2rem' }}>
+          <Link href="/" className="nav-link">← Back to Home</Link>
+        </nav>
+        
+        <header className="hero">
           <h1>{profileData.name}</h1>
-          <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+          <p style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: '500' }}>
             {profileData.title} of{' '}
             <a
               href={profileData.organization.url}
               target="_blank"
               rel="noopener noreferrer"
+              style={{ color: 'white', textDecoration: 'underline' }}
             >
               {profileData.organization.name}
             </a>
           </p>
-          <p style={{ color: '#666', marginBottom: '2rem' }}>
-            {profileData.location.city}, {profileData.location.state} •{' '}
-            {profileData.location.region}
+          <p style={{ fontSize: '1.125rem', opacity: 0.9 }}>
+            {profileData.location.city}, {profileData.location.state} • {profileData.location.region}
           </p>
         </header>
 
-        <section>
+        <section className="section-content">
           <h2>About</h2>
-          <div style={{ maxWidth: '800px' }}>
-            <p>{profileData.bio}</p>
+          <div style={{ maxWidth: '900px' }}>
+            <p style={{ fontSize: '1.125rem', lineHeight: '1.8' }}>{profileData.bio}</p>
           </div>
         </section>
 
         <section>
           <h2>Contact</h2>
-          <ContactBlock
-            phone={profileData.contact.phone}
-            email={profileData.contact.email}
-            address={{
-              street: profileData.location.street,
-              city: profileData.location.city,
-              state: profileData.location.state,
-              zip: profileData.location.zip,
-            }}
-            mapUrl={profileData.location.mapUrl}
-          />
+          <div className="contact-block">
+            <ContactBlock
+              phone={profileData.contact.phone}
+              email={profileData.contact.email}
+              address={{
+                street: profileData.location.street,
+                city: profileData.location.city,
+                state: profileData.location.state,
+                zip: profileData.location.zip,
+              }}
+              mapUrl={profileData.location.mapUrl}
+            />
+          </div>
         </section>
 
         <section>
           <h2>Connect</h2>
-          <ul>
+          <div className="social-links">
             {profileData.social.linkedin && (
-              <li>
-                <a
-                  href={profileData.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </li>
+              <a
+                href={profileData.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                LinkedIn
+              </a>
             )}
             {profileData.social.facebook && (
-              <li>
-                <a
-                  href={profileData.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Facebook
-                </a>
-              </li>
+              <a
+                href={profileData.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                Facebook
+              </a>
             )}
             {profileData.social.instagram && (
-              <li>
-                <a
-                  href={profileData.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-              </li>
+              <a
+                href={profileData.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                Instagram
+              </a>
             )}
             {profileData.social.youtube && (
-              <li>
-                <a
-                  href={profileData.social.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  YouTube
-                </a>
-              </li>
+              <a
+                href={profileData.social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                YouTube
+              </a>
             )}
-          </ul>
+          </div>
         </section>
 
-        <section>
+        <section className="card">
           <h2>Organization</h2>
           <h3>
             <a
@@ -222,49 +221,50 @@ export default async function ProfilePage({ params }: PageProps) {
               {profileData.organization.name}
             </a>
           </h3>
-          <p>{profileData.organization.description}</p>
-          <p>
+          <p style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>{profileData.organization.description}</p>
+          <p style={{ marginTop: '1rem' }}>
             <a
               href={profileData.organization.aboutUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="btn btn-secondary"
             >
-              Learn more about {profileData.organization.name}
+              Learn more about {profileData.organization.name} →
             </a>
           </p>
         </section>
 
         <section>
           <h2>Frequently Asked Questions</h2>
-          <ul>
+          <div style={{ display: 'grid', gap: '1rem' }}>
             {profileData.faqs.map((faq, idx) => (
-              <li key={idx} style={{ marginBottom: '1.5rem' }}>
-                <strong>{faq.question}</strong>
-                <p style={{ marginTop: '0.5rem' }}>{faq.answer}</p>
-              </li>
+              <div key={idx} className="faq-item">
+                <div className="faq-question">{faq.question}</div>
+                <div className="faq-answer">{faq.answer}</div>
+              </div>
             ))}
-          </ul>
-          <p style={{ marginTop: '2rem' }}>
-            <Link href="/faq">View all FAQs →</Link>
+          </div>
+          <p style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <Link href="/faq" className="btn">View all FAQs →</Link>
           </p>
         </section>
 
         {profileData.localConnections && profileData.localConnections.length > 0 && (
-          <section>
+          <section className="card">
             <h2>Local Connections</h2>
-            <ul>
+            <div className="social-links">
               {profileData.localConnections.map((connection, idx) => (
-                <li key={idx}>
-                  <a
-                    href={connection.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {connection.name}
-                  </a>
-                </li>
+                <a
+                  key={idx}
+                  href={connection.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
+                  {connection.name}
+                </a>
               ))}
-            </ul>
+            </div>
           </section>
         )}
       </main>

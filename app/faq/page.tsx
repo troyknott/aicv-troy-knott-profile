@@ -32,35 +32,32 @@ export default function FAQPage() {
     <>
       <JsonLd data={faqSchema} />
       <main className="container">
-        <header>
-          <nav style={{ marginBottom: '2rem' }}>
-            <Link href="/">← Back to Home</Link>
-          </nav>
+        <nav style={{ marginBottom: '2rem' }}>
+          <Link href="/" className="nav-link">← Back to Home</Link>
+        </nav>
+        
+        <header className="hero">
           <h1>Frequently Asked Questions</h1>
-          <p style={{ color: '#666', marginBottom: '2rem' }}>
+          <p style={{ fontSize: '1.125rem', opacity: '0.9' }}>
             Common questions about {profileData.name}
           </p>
         </header>
 
         <section>
-          <dl style={{ display: 'grid', gap: '2rem' }}>
+          <div style={{ display: 'grid', gap: '1rem' }}>
             {profileData.faqs.map((faq, idx) => (
-              <div key={idx}>
-                <dt style={{ fontWeight: 'bold', marginBottom: '0.5rem', fontSize: '1.1rem' }}>
-                  {faq.question}
-                </dt>
-                <dd style={{ marginLeft: '0' }}>{faq.answer}</dd>
+              <div key={idx} className="faq-item">
+                <div className="faq-question">{faq.question}</div>
+                <div className="faq-answer">{faq.answer}</div>
               </div>
             ))}
-          </dl>
+          </div>
         </section>
 
-        <section style={{ marginTop: '3rem' }}>
-          <p>
-            <Link href={`/profile/${profileData.slug}`}>
-              View full profile →
-            </Link>
-          </p>
+        <section style={{ marginTop: '3rem', textAlign: 'center' }}>
+          <Link href={`/profile/${profileData.slug}`} className="btn">
+            View Full Profile →
+          </Link>
         </section>
       </main>
     </>

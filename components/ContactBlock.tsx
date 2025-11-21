@@ -21,25 +21,35 @@ export default function ContactBlock({
     : null
 
   return (
-    <address className="not-italic">
-      <div className="space-y-2">
+    <address className="not-italic" style={{ fontStyle: 'normal' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {fullAddress && address && (
           <div>
-            <p>{address.street && <span>{address.street}<br /></span>}
-            {address.city}, {address.state}{address.zip && ` ${address.zip}`}</p>
+            <p style={{ fontSize: '1.0625rem', lineHeight: '1.8', marginBottom: '0.5rem' }}>
+              {address.street && <><strong>{address.street}</strong><br /></>}
+              {address.city}, {address.state}{address.zip && ` ${address.zip}`}
+            </p>
           </div>
         )}
         {phone && (
           <div>
-            <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:underline">
-              {phone}
+            <a 
+              href={`tel:${phone.replace(/\s/g, '')}`} 
+              className="btn"
+              style={{ display: 'inline-block' }}
+            >
+              📞 {phone}
             </a>
           </div>
         )}
         {email && (
           <div>
-            <a href={`mailto:${email}`} className="hover:underline">
-              {email}
+            <a 
+              href={`mailto:${email}`} 
+              className="btn btn-secondary"
+              style={{ display: 'inline-block' }}
+            >
+              ✉️ {email}
             </a>
           </div>
         )}
@@ -49,9 +59,10 @@ export default function ContactBlock({
               href={mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="social-link"
+              style={{ display: 'inline-block' }}
             >
-              View on Google Maps
+              🗺️ View on Google Maps
             </a>
           </div>
         )}
