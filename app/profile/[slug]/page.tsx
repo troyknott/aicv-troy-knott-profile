@@ -156,36 +156,52 @@ export default async function ProfilePage({ params }: PageProps) {
             <div style={{ 
               width: '100%', 
               aspectRatio: '4/3', 
-              backgroundColor: 'rgba(255,255,255,0.1)', 
-              borderRadius: 'var(--border-radius)',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)', 
+              borderRadius: 'var(--border-radius-lg)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '2px dashed rgba(255,255,255,0.3)',
-              color: 'rgba(255,255,255,0.7)',
-              fontSize: '0.875rem'
+              border: '3px solid rgba(255,255,255,0.4)',
+              color: 'rgba(255,255,255,0.95)',
+              fontSize: '1rem',
+              fontWeight: '600',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+              backdropFilter: 'blur(10px)',
+              position: 'relative',
+              overflow: 'hidden'
             }}>
-              📷 Professional Headshot<br />Placeholder
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%)' }}></div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                📷 Professional Headshot<br />
+                <span style={{ fontSize: '0.875rem', opacity: 0.8 }}>Placeholder</span>
+              </div>
             </div>
           </div>
         </header>
 
         {/* Video Section Placeholder */}
-        <section className="card">
+        <section className="card" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fef3e2 100%)' }}>
           <h2>Featured Video</h2>
           <div style={{ 
             width: '100%', 
             aspectRatio: '16/9', 
-            backgroundColor: 'var(--color-bg-section)', 
-            borderRadius: 'var(--border-radius)',
+            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)', 
+            borderRadius: 'var(--border-radius-lg)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            border: '2px dashed var(--color-border)',
-            color: 'var(--color-text-light)',
-            marginBottom: '1rem'
+            border: '3px solid rgba(59,130,246,0.3)',
+            color: 'white',
+            marginBottom: '1rem',
+            boxShadow: 'var(--shadow-lg)',
+            position: 'relative',
+            overflow: 'hidden'
           }}>
-            🎥 Video Placeholder<br />Add your featured video here
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%)' }}></div>
+            <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', fontSize: '1.125rem', fontWeight: '600' }}>
+              🎥 Video Placeholder<br />
+              <span style={{ fontSize: '0.875rem', opacity: 0.9 }}>Add your featured video here</span>
+            </div>
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--color-text-light)', textAlign: 'center' }}>
             Add a professional video introduction, speaking engagement, or marketing insights video
@@ -197,11 +213,46 @@ export default async function ProfilePage({ params }: PageProps) {
           <section>
             <h2>Areas of Expertise</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
-              {profileData.expertise.map((skill, idx) => (
-                <div key={idx} className="card" style={{ textAlign: 'center', padding: '1.5rem' }}>
-                  <div className="badge" style={{ marginBottom: '0.5rem' }}>{skill}</div>
-                </div>
-              ))}
+              {profileData.expertise.map((skill, idx) => {
+                const gradients = [
+                  'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                  'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                  'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                  'linear-gradient(135deg, #ec4899 0%, #be185d 100%)',
+                  'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                  'linear-gradient(135deg, #a16207 0%, #d97706 100%)',
+                  'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+                  'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                ]
+                const gradient = gradients[idx % gradients.length]
+                return (
+                  <div 
+                    key={idx} 
+                    className="card" 
+                    style={{ 
+                      textAlign: 'center', 
+                      padding: '1.5rem',
+                      background: 'linear-gradient(135deg, #ffffff 0%, #fef9f3 100%)',
+                      border: '2px solid transparent',
+                      backgroundImage: `linear-gradient(white, white), ${gradient}`,
+                      backgroundOrigin: 'border-box',
+                      backgroundClip: 'padding-box, border-box'
+                    }}
+                  >
+                    <div 
+                      className="badge" 
+                      style={{ 
+                        marginBottom: '0.5rem',
+                        background: gradient,
+                        fontSize: '0.9375rem',
+                        padding: '0.625rem 1.25rem'
+                      }}
+                    >
+                      {skill}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </section>
         )}
@@ -263,39 +314,88 @@ export default async function ProfilePage({ params }: PageProps) {
 
         {/* Speaking Engagements */}
         {profileData.speaking && profileData.speaking.length > 0 && (
-          <section className="card">
+          <section className="card" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fef3e2 100%)' }}>
             <h2>Speaking Engagements</h2>
             <div style={{ display: 'grid', gap: '1rem' }}>
-              {profileData.speaking.map((event, idx) => (
-                <div key={idx} style={{ padding: '1rem', backgroundColor: 'var(--color-bg-light)', borderRadius: 'var(--border-radius)' }}>
-                  <div style={{ fontWeight: '600', marginBottom: '0.5rem', color: 'var(--color-primary)' }}>
-                    {event.title}
+              {profileData.speaking.map((event, idx) => {
+                const gradients = [
+                  'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                  'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                  'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                ]
+                const gradient = gradients[idx % gradients.length]
+                return (
+                  <div 
+                    key={idx} 
+                    style={{ 
+                      padding: '1.5rem', 
+                      background: 'linear-gradient(135deg, #ffffff 0%, #fef9f3 100%)',
+                      borderRadius: 'var(--border-radius-lg)',
+                      borderLeft: '5px solid',
+                      borderImage: `${gradient} 1`,
+                      boxShadow: 'var(--shadow-sm)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateX(5px)'
+                      e.currentTarget.style.boxShadow = 'var(--shadow-md)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateX(0)'
+                      e.currentTarget.style.boxShadow = 'var(--shadow-sm)'
+                    }}
+                  >
+                    <div style={{ fontWeight: '600', marginBottom: '0.5rem', background: gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                      {event.title}
+                    </div>
+                    <div style={{ color: 'var(--color-text-light)', fontSize: '0.9375rem' }}>
+                      {event.venue} • {event.type}
+                    </div>
                   </div>
-                  <div style={{ color: 'var(--color-text-light)', fontSize: '0.9375rem' }}>
-                    {event.venue} • {event.type}
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </section>
         )}
 
         {/* Publications */}
         {profileData.publications && profileData.publications.length > 0 && (
-          <section className="card">
+          <section className="card" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fef3e2 100%)' }}>
             <h2>Publications & Writings</h2>
             <div style={{ display: 'grid', gap: '1rem' }}>
-              {profileData.publications.map((pub, idx) => (
-                <div key={idx} style={{ padding: '1rem', backgroundColor: 'var(--color-bg-light)', borderRadius: 'var(--border-radius)', borderLeft: '4px solid var(--color-accent)' }}>
-                  <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>{pub.title}</div>
-                  <div style={{ color: 'var(--color-text-light)', fontSize: '0.9375rem' }}>
-                    {pub.source} • {pub.type}
+              {profileData.publications.map((pub, idx) => {
+                const gradient = 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)'
+                return (
+                  <div 
+                    key={idx} 
+                    style={{ 
+                      padding: '1.5rem', 
+                      background: 'linear-gradient(135deg, #ffffff 0%, #fef9f3 100%)',
+                      borderRadius: 'var(--border-radius-lg)', 
+                      borderLeft: '5px solid',
+                      borderImage: `${gradient} 1`,
+                      boxShadow: 'var(--shadow-sm)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateX(5px)'
+                      e.currentTarget.style.boxShadow = 'var(--shadow-md)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateX(0)'
+                      e.currentTarget.style.boxShadow = 'var(--shadow-sm)'
+                    }}
+                  >
+                    <div style={{ fontWeight: '600', marginBottom: '0.5rem', background: gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{pub.title}</div>
+                    <div style={{ color: 'var(--color-text-light)', fontSize: '0.9375rem' }}>
+                      {pub.source} • {pub.type}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
-            <p style={{ marginTop: '1rem' }}>
-              <a href={profileData.organization.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            <p style={{ marginTop: '1rem', textAlign: 'center' }}>
+              <a href={profileData.organization.url} target="_blank" rel="noopener noreferrer" className="btn">
                 Read More Articles →
               </a>
             </p>
@@ -319,7 +419,7 @@ export default async function ProfilePage({ params }: PageProps) {
         )}
 
         {/* Photo Gallery Placeholder */}
-        <section className="card">
+        <section className="card" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fef3e2 100%)' }}>
           <h2>Photo Gallery</h2>
           <div style={{ 
             display: 'grid', 
@@ -327,26 +427,49 @@ export default async function ProfilePage({ params }: PageProps) {
             gap: '1rem',
             marginTop: '1rem'
           }}>
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div 
-                key={num}
-                style={{ 
-                  aspectRatio: '1',
-                  backgroundColor: 'var(--color-bg-section)', 
-                  borderRadius: 'var(--border-radius)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '2px dashed var(--color-border)',
-                  color: 'var(--color-text-light)',
-                  fontSize: '0.875rem',
-                  textAlign: 'center',
-                  padding: '0.5rem'
-                }}
-              >
-                📸 Photo<br />{num}
-              </div>
-            ))}
+            {[1, 2, 3, 4, 5, 6].map((num) => {
+              const gradients = [
+                'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                'linear-gradient(135deg, #ec4899 0%, #be185d 100%)',
+                'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                'linear-gradient(135deg, #a16207 0%, #d97706 100%)',
+              ]
+              const gradient = gradients[(num - 1) % gradients.length]
+              return (
+                <div 
+                  key={num}
+                  style={{ 
+                    aspectRatio: '1',
+                    background: gradient,
+                    borderRadius: 'var(--border-radius-lg)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '3px solid rgba(255,255,255,0.5)',
+                    color: 'white',
+                    fontSize: '1rem',
+                    textAlign: 'center',
+                    padding: '0.5rem',
+                    boxShadow: 'var(--shadow-md)',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)'
+                    e.currentTarget.style.boxShadow = 'var(--shadow-xl)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)'
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md)'
+                  }}
+                >
+                  📸 Photo {num}
+                </div>
+              )
+            })}
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--color-text-light)', textAlign: 'center', marginTop: '1rem' }}>
             Add professional photos: speaking engagements, events, team photos, or behind-the-scenes
@@ -354,36 +477,47 @@ export default async function ProfilePage({ params }: PageProps) {
         </section>
 
         {/* Testimonials Placeholder */}
-        <section className="card">
+        <section className="card" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fef3e2 100%)' }}>
           <h2>What People Say</h2>
           <div style={{ display: 'grid', gap: '1.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            {[1, 2, 3].map((num) => (
-              <div 
-                key={num}
-                style={{ 
-                  padding: '1.5rem',
-                  backgroundColor: 'var(--color-bg-light)',
-                  borderRadius: 'var(--border-radius)',
-                  borderLeft: '4px solid var(--color-accent)'
-                }}
-              >
-                <div style={{ 
-                  fontSize: '1.125rem', 
-                  lineHeight: '1.7', 
-                  marginBottom: '1rem',
-                  fontStyle: 'italic',
-                  color: 'var(--color-text)'
-                }}>
-                  &ldquo;Add client testimonial or recommendation here. This section showcases social proof and builds credibility.&rdquo;
+            {[1, 2, 3].map((num) => {
+              const gradients = [
+                'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+              ]
+              const gradient = gradients[(num - 1) % gradients.length]
+              return (
+                <div 
+                  key={num}
+                  className="testimonial-card"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #ffffff 0%, #fef9f3 100%)',
+                    borderLeft: '5px solid',
+                    borderImage: `${gradient} 1`
+                  }}
+                >
+                  <div style={{ 
+                    fontSize: '1.125rem', 
+                    lineHeight: '1.7', 
+                    marginBottom: '1rem',
+                    fontStyle: 'italic',
+                    color: 'var(--color-text)'
+                  }}>
+                    &ldquo;Add client testimonial or recommendation here. This section showcases social proof and builds credibility.&rdquo;
+                  </div>
+                  <div style={{ 
+                    fontWeight: '600',
+                    background: gradient,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>
+                    — Client Name, Company
+                  </div>
                 </div>
-                <div style={{ 
-                  fontWeight: '600',
-                  color: 'var(--color-primary)'
-                }}>
-                  — Client Name, Company
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--color-text-light)', textAlign: 'center', marginTop: '1rem' }}>
             Add testimonials from clients, partners, or colleagues
