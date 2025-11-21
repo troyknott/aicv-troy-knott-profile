@@ -59,6 +59,79 @@
   "brandVoice": "friendly-professional",
   "colors": {
     "primary": "greens, browns, blues, pinks, desert colors at sunset and sunrise"
+  },
+  "expertise": [
+    "Search Engine Optimization (SEO)",
+    "Digital Advertising",
+    "Web Design & Development",
+    "Digital Strategy",
+    "Brand Building",
+    "Direct Response Marketing",
+    "Business Development",
+    "AI-Powered Marketing Tools"
+  ],
+  "credentials": {
+    "education": [
+      {
+        "degree": "B.S.",
+        "institution": "University of California, Berkeley",
+        "field": "Business & Technology"
+      },
+      {
+        "degree": "M.A.",
+        "institution": "University of Hawai'i at Manoa",
+        "field": "Advanced Studies"
+      }
+    ],
+    "achievements": [
+      "Founded Spring Digital, Inc. (2014)",
+      "40+ years combined team experience",
+      "Regular podcast guest on AI tools",
+      "Chamber of Commerce presenter",
+      "Published author on marketing strategies"
+    ]
+  },
+  "speaking": [
+    {
+      "title": "Local Marketing Tactics for Business Growth",
+      "venue": "Palm Desert Area Chamber of Commerce",
+      "type": "Presentation"
+    },
+    {
+      "title": "AI Tools in Digital Marketing",
+      "venue": "Various Podcasts",
+      "type": "Guest Speaker"
+    },
+    {
+      "title": "Conversion Optimization Strategies",
+      "venue": "Rancho Mirage Chamber of Commerce",
+      "type": "Workshop"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Marketing Strategies for Growth",
+      "source": "Growth Resource Center - Spring Digital",
+      "type": "Article"
+    },
+    {
+      "title": "Leadership in Digital Agencies",
+      "source": "Growth Resource Center - Spring Digital",
+      "type": "Article"
+    },
+    {
+      "title": "How Agencies Help Businesses Grow",
+      "source": "Growth Resource Center - Spring Digital",
+      "type": "Article"
+    }
+  ],
+  "media": {
+    "podcasts": [
+      "Regular guest discussing AI tools in marketing",
+      "Custom AI tool development for clients",
+      "Digital marketing strategy insights"
+    ],
+    "videos": []
   }
 }
 
