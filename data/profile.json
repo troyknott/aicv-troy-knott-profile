@@ -1,0 +1,65 @@
+{
+  "slug": "troy-knott",
+  "name": "Troy Knott",
+  "title": "Founder and CEO",
+  "organization": {
+    "name": "Spring Digital, Inc.",
+    "url": "https://springdigital.agency/",
+    "aboutUrl": "https://springdigital.agency/about/",
+    "description": "Spring Digital uses the latest technology and solutions to drive leads, build brands, and convert brand curiosity into sales. Our well-calibrated team of digital marketing specialists has over 40 years of combined experience. Design talent, web development expertise, branding knowledge, research, and technical skills come together to drive results. We help mission-led, ambitious businesses grow through smart strategy, creative thinking, and measurable results that truly matter."
+  },
+  "description": "Troy Knott is the Founder and CEO of Spring Digital, Inc. Working as an in-house and freelance web designer and digital marketer from over a decade ago, Troy formally launched the boutique digital marketing firm as Spring SEO, Inc. in 2014. Since then, he has worked with dozens of B2C and B2B clients helping to build their brands. Through his hands-on expertise in digital marketing, Troy assists in building the online presence for companies small to large with a strong focus in direct response and acquisition-based marketing. Troy is a strong business development professional skilled in search engine optimization (SEO), digital advertising, sales, web design, management, and digital strategy. He leads business development and client interaction for Spring Digital. Troy holds a B.S. from the University California at Berkeley and a M.A. from the University of Hawai'i at Manoa.",
+  "bio": "Troy Knott is the founder and CEO of Spring Digital, Inc., a full-service digital marketing agency. He works with a wide array of businesses to help them realize their growth potential. With decades of experience spanning multiple degrees, publications, speaking engagements, presentations, and client workshops, Troy leads with education and in-depth research to provide a fun yet serious perspective. As the leader of a multifaceted digital marketing agency, Troy's varied interests allow him to speak to the many marketing and business development pain points his clients face. Troy starts from a goals-first perspective to develop complete marketing strategies for his clients. This important distinction allows Troy and his team to produce executable engagements that produce the results their clients require, where others rely on simple services hoping a one-size fits all approach. As a seasoned veteran in digital marketing, Troy knows each business is unique and requires personalized understandings and marketing to truly help accelerate their growth. Troy regularly presents at conferences and local Chamber events on how businesses can improve their visibility and conversion results through effective local marketing tactics. He is a regular guest on numerous podcasts discussing usage of AI tools and how his team builds custom AI tools for their clients. Troy's writings can be found at the Growth Resource Center in Spring Digital's website, where he publishes articles on marketing strategies, leadership, and how agencies help businesses grow.",
+  "location": {
+    "street": "78-401 Highway 111, Suite D",
+    "city": "La Quinta",
+    "state": "CA",
+    "zip": "92253",
+    "region": "Coachella Valley",
+    "mapUrl": "https://maps.app.goo.gl/xmbzVS2ifWXnEzzW8"
+  },
+  "contact": {
+    "phone": "(949) 478-4766",
+    "email": "launch@springdigital.agency"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/troy.knott.3",
+    "instagram": "https://www.instagram.com/try_knott/",
+    "linkedin": "https://www.linkedin.com/in/troyknott/",
+    "youtube": "https://www.youtube.com/@ScaryBlackVan"
+  },
+  "localConnections": [
+    {
+      "name": "Palm Desert Area Chamber of Commerce",
+      "url": "https://www.pdacc.org/"
+    },
+    {
+      "name": "Rancho Mirage Chamber of Commerce",
+      "url": "https://www.ranchomiragechamber.org/"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What services does Troy Knott and Spring Digital offer?",
+      "answer": "Troy Knott leads Spring Digital, Inc., a full-service digital marketing agency that specializes in search engine optimization (SEO), digital advertising, web design, digital strategy, and brand building. The agency works with B2C and B2B clients of all sizes, focusing on direct response and acquisition-based marketing to drive leads and convert brand curiosity into sales."
+    },
+    {
+      "question": "How can I contact Troy Knott?",
+      "answer": "You can reach Troy Knott by phone at (949) 478-4766, email at launch@springdigital.agency, or visit Spring Digital's website at https://springdigital.agency/. The office is located at 78-401 Highway 111, Suite D, La Quinta, CA 92253."
+    },
+    {
+      "question": "What makes Troy Knott's approach to digital marketing unique?",
+      "answer": "Troy starts from a goals-first perspective to develop complete marketing strategies tailored to each client's unique needs. Rather than relying on one-size-fits-all solutions, Troy and his team produce executable engagements that deliver measurable results. With decades of experience, multiple degrees, and expertise spanning SEO, digital advertising, web design, and strategy, Troy combines education, research, and hands-on expertise to help businesses accelerate their growth."
+    }
+  ],
+  "image": {
+    "url": "/images/troy-knott-profile.jpg",
+    "alt": "Troy Knott, Founder and CEO of Spring Digital, Inc."
+  },
+  "brandVoice": "friendly-professional",
+  "colors": {
+    "primary": "greens, browns, blues, pinks, desert colors at sunset and sunrise"
+  }
+}
+
+
