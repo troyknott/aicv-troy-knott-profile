@@ -23,7 +23,7 @@ export default function ContactBlock({
   return (
     <address className="not-italic">
       <div className="space-y-2">
-        {fullAddress && (
+        {fullAddress && address && (
           <div>
             <p>{address.street && <span>{address.street}<br /></span>}
             {address.city}, {address.state}{address.zip && ` ${address.zip}`}</p>
